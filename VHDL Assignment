@@ -1,0 +1,33 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+Entity Comparator is
+port (
+inA, inB : in std_logic_vector(2 downto 0);
+greater, equal, smaller : out std_logic;
+LEDR : out std_logic_vector (5 downto 0)
+
+);
+
+end Comparator;
+
+Architecture Behavior of Comparator is
+Begin
+
+greater <= '1' when (inA > inB)
+else  '0';
+equal <= '1' when (inA = inB)
+else '0';
+smaller <= '1' when (inA < inB)
+else '0';
+
+LEDR (5) <= inB(2);
+LEDR (4) <= inB(1);
+LEDR (3) <= inB(0);
+LEDR (2) <= inA(2);
+LEDR (1) <= inA(1);
+LEDR (0) <= inA(0);
+
+end Behavior;
