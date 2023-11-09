@@ -1,0 +1,16 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity Half_adder is
+
+	port(a, b: in bit; sum,carry: out bit);
+end Half_adder;
+
+Architecture data of Half_adder is
+Begin
+
+	sum <= a xor b;
+	carry <= a and b;
+end data;
